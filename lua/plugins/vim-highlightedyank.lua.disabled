@@ -1,0 +1,5 @@
+-- This plugin is deprecated in favor of an autocmd specified separately in config/autocmds.lua
+return {
+	"machakann/vim-highlightedyank",
+	lazy = false,
+}
