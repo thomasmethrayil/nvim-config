@@ -4,8 +4,8 @@ Inspired by [radleyLewis](https://github.com/radleylewis) brilliant setup from s
 [video](https://youtu.be/ZjMzBd1Dqz8?si=pul-PqLM9zktPGpw).
 
 Differences from their setup : 
- - Rust-analyzer out of the box via [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)
- - Removed noice and TypeScript support
+ - Rust-analyzer out of the box via [rustaceanvim](https://github.com/mrcjkb/rustaceanvim).
+ - Removed noice. 
 
 ## plugins
 
