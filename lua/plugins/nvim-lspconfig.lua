@@ -1,5 +1,6 @@
 local on_attach = require("util.lsp").on_attach
 local diagnostic_signs = require("util.icons").diagnostic_signs
+local typescript_organise_imports = require("util.lsp").typescript_organise_imports
 
 local config = function()
 	require("neoconf").setup({})
@@ -50,16 +51,44 @@ local config = function()
 		},
 	})
 
+-- typescript
+	lspconfig.tsserver.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		filetypes = {
+			"typescript",
+			"javascript",
+			"typescriptreact",
+			"javascriptreact",
+		},
+		commands = {
+			TypeScriptOrganizeImports = typescript_organise_imports,
+		},
+		settings = {
+			typescript = {
+				indentStyle = "space",
+				indentSize = 2,
+			},
+		},
+		root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+	})
+
 	local luacheck = require("efmls-configs.linters.luacheck")
 	local stylua = require("efmls-configs.formatters.stylua")
 	local flake8 = require("efmls-configs.linters.flake8")
 	local black = require("efmls-configs.formatters.black")
+  local eslint = require("efmls-configs.linters.eslint")
+	local prettier_d = require("efmls-configs.formatters.prettier_d")
 
 	-- configure efm server
 	lspconfig.efm.setup({
 		filetypes = {
 			"lua",
 			"python",
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
 		},
 		init_options = {
 			documentFormatting = true,
@@ -73,6 +102,10 @@ local config = function()
 			languages = {
 				lua = { luacheck, stylua },
 				python = { flake8, black },
+        typescript = { eslint, prettier_d },
+        javascript = { eslint, prettier_d },
+				javascriptreact = { eslint, prettier_d },
+				typescriptreact = { eslint, prettier_d },
 			},
 		},
 	})

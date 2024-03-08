@@ -3,6 +3,7 @@ local opts = {
 		"efm",
 		"lua_ls",
 		"pyright",
+    "tsserver",
 	},
 
 	automatic_installation = true,
