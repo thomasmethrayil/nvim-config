@@ -12,6 +12,7 @@ local config = function()
 			"BufNewFile",
 		},
 		ensure_installed = {
+      "ocaml",
 			"rust",
 			"markdown",
 			"json",
