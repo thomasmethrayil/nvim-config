@@ -16,5 +16,13 @@ M.on_attach = function(client, bufnr)
 	mapkey("<leader>pd", "Lspsaga diagnostic_jump_prev", "n", opts) -- jump to prev diagnostic in buffer
 	mapkey("<leader>nd", "Lspsaga diagnostic_jump_next", "n", opts) -- jump to next diagnostic in buffer
 	mapkey("K", "Lspsaga hover_doc", "n", opts) -- show documentation for what is under cursor
+  local codelens = vim.api.nvim_create_augroup("LSPCodeLens", { clear = true })
+  vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
+      group = codelens,
+      callback = function()
+        vim.lsp.codelens.refresh()
+      end,
+      buffer = bufnr,
+    })
 end
 return M

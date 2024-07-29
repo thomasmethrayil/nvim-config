@@ -27,6 +27,9 @@ local config = function()
 		),
 		on_attach = on_attach,
 		capabilities = capabilities,
+    settings = {
+      codelens = { enable = true },
+    },
 	})
 
 	-- lua
