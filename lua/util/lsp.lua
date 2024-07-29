@@ -16,29 +16,5 @@ M.on_attach = function(client, bufnr)
 	mapkey("<leader>pd", "Lspsaga diagnostic_jump_prev", "n", opts) -- jump to prev diagnostic in buffer
 	mapkey("<leader>nd", "Lspsaga diagnostic_jump_next", "n", opts) -- jump to next diagnostic in buffer
 	mapkey("K", "Lspsaga hover_doc", "n", opts) -- show documentation for what is under cursor
-
-	if client.name == "pyright" then
-		mapkey("<leader>oi", "pyrightorganizeimports", "n", opts) -- organise imports
-		mapkey("<leader>db", "daptogglebreakpoint", "n", opts) -- toggle breakpoint
-		mapkey("<leader>dr", "dapcontinue", "n", opts) -- continue/invoke debugger
-		mapkey("<leader>dt", "lua require('dap-python').test_method()", "n", opts) -- run tests
-	end
-
-	if client.name == "tsserver" then
-		mapkey("<leader>oi", "TypeScriptOrganizeImports", "n", opts) -- organise imports
-	end
 end
-
-M.typescript_organise_imports = {
-	description = "Organise Imports",
-	function()
-		local params = {
-			command = "_typescript.organizeImports",
-			arguments = { vim.fn.expand("%:p") },
-		}
-		-- reorganise imports
-		vim.lsp.buf.execute_command(params)
-	end,
-}
-
 return M

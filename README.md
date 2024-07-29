@@ -1,11 +1,6 @@
 # Neovim configuration
 
-Inspired by [radleyLewis](https://github.com/radleylewis) brilliant setup from scratch 
-[video](https://youtu.be/ZjMzBd1Dqz8?si=pul-PqLM9zktPGpw).
-
-Differences from their setup : 
- - Rust-analyzer out of the box via [rustaceanvim](https://github.com/mrcjkb/rustaceanvim).
- - Removed noice. 
+Neovim configuration
 
 ## plugins
 
@@ -32,6 +27,6 @@ Differences from their setup :
 
 ## neovim version supported
 
-^0.9.0
+^0.10.0
 
 
