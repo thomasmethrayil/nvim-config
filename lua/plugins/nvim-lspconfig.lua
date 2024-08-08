@@ -13,6 +13,9 @@ local config = function()
 		vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 	end
 
+  --gleam
+  lspconfig.gleam.setup({});
+
 	--ocaml
 	lspconfig.ocamllsp.setup({
 		cmd = { "ocamllsp" },
